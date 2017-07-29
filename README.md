@@ -1,5 +1,7 @@
 # ReCAPTCHADemo
 
+Demo utilizado en la charla del 29 de Julio de la comunidad Angular Bolivia
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
 
 ## Development server

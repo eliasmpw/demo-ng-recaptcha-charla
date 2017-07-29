@@ -1,0 +1,36 @@
+<div class="align-center">
+  <form #captchaProtectedForm="ngForm"
+        (ngSubmit)="onSubmit()">
+    <re-captcha class="center-recaptcha"
+                [(ngModel)]="formModel.captcha"
+                name="captcha"
+                required (resolved)="resolved($event)"
+                siteKey="6Le-wyoUAAAAAAx0Y_Qm056BbPa3kOPIDAnA0O-E"
+                #captchaControl="ngModel">
+    </re-captcha>
+    <div [hidden]="captchaControl.valid || captchaControl.pristine"
+        class="error">
+      Captcha must be solved
+    </div>
+    <div [hidden]="!captchaControl.valid"
+        class="success">
+      Captcha is valid
+    </div>
+    <div [hidden]="captchaProtectedForm.form.valid"
+        class="error">
+      The form is invalid
+    </div>
+    <div [hidden]="!captchaProtectedForm.form.valid"
+        class="success">
+      The form is valid
+    </div>
+    <button type="button"
+            (click)="formModel.captcha = ''">
+      Reset Captcha
+    </button>
+    <button type="submit"
+            [disabled]="!captchaProtectedForm.form.valid">        
+      Submit
+    </button>
+  </form>
+</div>

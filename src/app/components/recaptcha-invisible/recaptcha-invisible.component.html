@@ -1,0 +1,25 @@
+<div class="align-center">
+  <form #captchaProtectedForm="ngForm"
+        (ngSubmit)="onSubmit()">
+    <re-captcha class="center-recaptcha"
+                [(ngModel)]="formModel.captcha"
+                name="captcha"
+                (resolved)="resolved($event)"
+                siteKey="6LcQxCoUAAAAAOHuwoXuZQd_TmDd2FepgZbwNIAh"
+                size="invisible"
+                #captchaRef="reCaptcha"
+                #captchaControl="ngModel">
+    </re-captcha>
+    <div>
+      {{formModel.captcha}}
+    </div>
+    <button type="button"
+            (click)="captchaRef.reset()">
+      Reset Captcha
+    </button>
+    <button type="button"
+            (click)="captchaRef.execute()">      
+      Submit
+    </button>
+  </form>
+</div>
